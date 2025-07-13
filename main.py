@@ -3,7 +3,9 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 import asyncio
-from commands import core, user, admin
+from commands.core import Core
+from commands.user import UserCommands
+from commands.admin import AdminCommands
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -19,9 +21,9 @@ async def on_ready():
     print(f"✅ Logged in as {bot.user}")
 
 async def setup():
-    await bot.add_cog(core.CoreCommands(bot))
-    await bot.add_cog(user.UserCommands(bot))
-    await bot.add_cog(admin.AdminCommands(bot))
+    await bot.add_cog(Core(bot))
+    await bot.add_cog(UserCommands(bot))
+    await bot.add_cog(AdminCommands(bot))
 
 asyncio.run(setup())
 bot.run(TOKEN)
