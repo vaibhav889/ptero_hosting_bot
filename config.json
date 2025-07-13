@@ -1,6 +1,0 @@
-{
-  "panel_url": "https://panel.yourhost.com",
-  "api_key": "your-admin-api-key",
-  "node_ids": [1, 2],
-  "admin_ids": [123456789012345678]
-}
